@@ -1,0 +1,504 @@
+PS C:\Users\TARUMT> wsl ~
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.146.1-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This message is shown once a day. To disable it please create the
+/home/hduser/.hushlogin file.
+hduser@PC10:~$ su - student
+Password:
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.146.1-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This message is shown once a day. To disable it please create the
+/home/student/.hushlogin file.
+student@PC10:~$ mkdir de-prj
+student@PC10:~$ python3 -m venv de-prj/de-venv
+student@PC10:~$ de-prj/de-venv/bin/python -m pip install -U --quiet pip wheel setuptools
+student@PC10:~$ de-prj/de-venv/bin/python -m pip install -U --quiet ipykernel
+student@PC10:~$ de-prj/de-venv/bin/python -m ipykernel install --user --name "de-venv" --display-name "de-venv"
+Installed kernelspec de-venv in /home/student/.local/share/jupyter/kernels/de-venv
+student@PC10:~$ source de-prj/de-venv/bin/activate
+(de-venv) student@PC10:~$ pip install pyspark[sql]==3.5.5 numpy
+Collecting pyspark==3.5.5 (from pyspark[sql]==3.5.5)
+  Downloading pyspark-3.5.5.tar.gz (317.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 317.2/317.2 MB 34.6 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting numpy
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting py4j==0.10.9.7 (from pyspark==3.5.5->pyspark[sql]==3.5.5)
+  Downloading py4j-0.10.9.7-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting pandas>=1.0.5 (from pyspark[sql]==3.5.5)
+  Downloading pandas-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+Collecting pyarrow>=4.0.0 (from pyspark[sql]==3.5.5)
+  Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting numpy
+  Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./de-prj/de-venv/lib/python3.10/site-packages (from pandas>=1.0.5->pyspark[sql]==3.5.5) (2.9.0.post0)
+Collecting pytz>=2020.1 (from pandas>=1.0.5->pyspark[sql]==3.5.5)
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas>=1.0.5->pyspark[sql]==3.5.5)
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: six>=1.5 in ./de-prj/de-venv/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas>=1.0.5->pyspark[sql]==3.5.5) (1.17.0)
+Downloading py4j-0.10.9.7-py2.py3-none-any.whl (200 kB)
+Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 44.3 MB/s eta 0:00:00
+Downloading pandas-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 53.2 MB/s eta 0:00:00
+Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 65.6 MB/s eta 0:00:00
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Building wheels for collected packages: pyspark
+  DEPRECATION: Building 'pyspark' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'pyspark'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+  Building wheel for pyspark (setup.py) ... done
+  Created wheel for pyspark: filename=pyspark-3.5.5-py2.py3-none-any.whl size=317747922 sha256=773dd740e642119907e570bcb7a58420cfae62b7e0dcb59d9913be38b3d59ad7
+  Stored in directory: /home/student/.cache/pip/wheels/63/df/11/adb488c742a35758ac91810b7b0dd6ba21bc21ae48b79cfa6e
+Successfully built pyspark
+Installing collected packages: pytz, py4j, tzdata, pyspark, pyarrow, numpy, pandas
+Successfully installed numpy-1.26.4 pandas-2.3.0 py4j-0.10.9.7 pyarrow-20.0.0 pyspark-3.5.5 pytz-2025.2 tzdata-2025.2
+(de-venv) student@PC10:~$
+(de-venv) student@PC10:~$ pip freeze
+asttokens==3.0.0
+comm==0.2.2
+debugpy==1.8.14
+decorator==5.2.1
+exceptiongroup==1.3.0
+executing==2.2.0
+ipykernel==6.29.5
+ipython==8.37.0
+jedi==0.19.2
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+matplotlib-inline==0.1.7
+nest-asyncio==1.6.0
+numpy==1.26.4
+packaging==25.0
+pandas==2.3.0
+parso==0.8.4
+pexpect==4.9.0
+platformdirs==4.3.8
+prompt_toolkit==3.0.51
+psutil==7.0.0
+ptyprocess==0.7.0
+pure_eval==0.2.3
+py4j==0.10.9.7
+pyarrow==20.0.0
+Pygments==2.19.2
+pyspark==3.5.5
+python-dateutil==2.9.0.post0
+pytz==2025.2
+pyzmq==27.0.0
+six==1.17.0
+stack-data==0.6.3
+tornado==6.5.1
+traitlets==5.14.3
+typing_extensions==4.14.0
+tzdata==2025.2
+wcwidth==0.2.13
+(de-venv) student@PC10:~$ pip freeze > requirement.txt
+(de-venv) student@PC10:~$ cat requirement 4.
+cat: requirement: No such file or directory
+cat: 4.: No such file or directory
+(de-venv) student@PC10:~$ deactivate
+student@PC10:~$
+student@PC10:~$ cp -r /mnt/desktop/sample_data /home/student/
+cp: cannot stat '/mnt/desktop/sample_data': No such file or directory
+student@PC10:~$ cp -r /mnt/c/sample_data /home/student/
+student@PC10:~$ cp -r /mnt/c/sample_code/* /home/student/de-prj
+student@PC10:~$ ls -l
+total 12
+drwxrwxr-x 4 student student 4096 Jun 26 16:28 de-prj
+-rw-rw-r-- 1 student student  638 Jun 26 16:18 requirement.txt
+drwxrwxr-x 5 student student 4096 Jun 26 16:27 sample_data
+student@PC10:~$ ls -l sample_data
+total 5956
+-rwxrwxr-x 1 student student     147 Jun 26 16:27 OrderInformation.txt
+drwxrwxr-x 2 student student   12288 Jun 26 16:27 activity-data
+-rwxrwxr-x 1 student student     193 Jun 26 16:27 data.txt
+-rwxrwxr-x 1 student student      64 Jun 26 16:27 discounts.csv
+-rwxrwxr-x 1 student student     693 Jun 26 16:27 fabmessages.json
+-rwxrwxr-x 1 student student     139 Jun 26 16:27 marks.csv
+-rwxrwxr-x 1 student student 6045313 Jun 26 16:27 nyt2.json
+drwxrwxr-x 2 student student    4096 Jun 26 16:27 salary_data.csv
+drwxrwxr-x 2 student student    4096 Jun 26 16:27 salary_data2.csv
+-rwxrwxr-x 1 student student     131 Jun 26 16:27 sales.csv
+-rwxrwxr-x 1 student student     503 Jun 26 16:27 sampleFile.log
+-rwxrwxr-x 1 student student     187 Jun 26 16:27 weather.txt
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ ls -l de-prj
+total 356
+-rwxrwxr-x 1 student student 37768 Jun 26 16:28 'NOTEBOOK 3.1 PySpark RDDs.ipynb'
+-rwxrwxr-x 1 student student 61583 Jun 26 16:28 'NOTEBOOK 3.2(a) Spark DataFrames.ipynb'
+-rwxrwxr-x 1 student student 35818 Jun 26 16:28 'NOTEBOOK 3.2(b) Spark DataFrames - Advanced Operationsns.ipynb'
+-rwxrwxr-x 1 student student 42560 Jun 26 16:28 'NOTEBOOK 3.3 Spark SQL.ipynb'
+-rwxrwxr-x 1 student student 30045 Jun 26 16:28 'NOTEBOOK 3.4 Spark File IO and UDFs.ipynb'
+-rwxrwxr-x 1 student student 13272 Jun 26 16:28 'NOTEBOOK 3.5 SparkML Estimator and Transformer.ipynb'
+-rwxrwxr-x 1 student student  6068 Jun 26 16:28 'NOTEBOOK 3.6 SparkML Pipeline.ipynb'
+-rwxrwxr-x 1 student student 21499 Jun 26 16:28 'NOTEBOOK 3.7 PySpark and Hive.ipynb'
+-rwxrwxr-x 1 student student  6564 Jun 26 16:28 'NOTEBOOK 4.1 Redis.ipynb'
+-rwxrwxr-x 1 student student 13782 Jun 26 16:28 'NOTEBOOK 4.2 PyMongo.ipynb'
+-rwxrwxr-x 1 student student 11051 Jun 26 16:28 'NOTEBOOK 4.3 Neo4j.ipynb'
+-rwxrwxr-x 1 student student 36295 Jun 26 16:28 'NOTEBOOK 6.1 Spark Structured Streaming.ipynb'
+-rwxrwxr-x 1 student student   938 Jun 26 16:28  create_venv.sh
+drwxrwxr-x 6 student student  4096 Jun 26 16:14  de-venv
+drwxrwxr-x 2 student student  4096 Jun 26 16:28  de_classes
+-rwxrwxr-x 1 student student   206 Jun 26 16:28  kafka-python-consumer.py
+-rwxrwxr-x 1 student student   380 Jun 26 16:28  kafka-python-producer.py
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ jupyter lab
+[I 2025-06-26 16:32:29.609 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2025-06-26 16:32:29.612 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2025-06-26 16:32:29.616 ServerApp] jupyterlab | extension was successfully linked.
+[I 2025-06-26 16:32:29.856 ServerApp] notebook_shim | extension was successfully linked.
+[I 2025-06-26 16:32:29.883 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2025-06-26 16:32:29.885 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2025-06-26 16:32:29.886 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2025-06-26 16:32:29.887 LabApp] JupyterLab extension loaded from /usr/local/lib/python3.10/dist-packages/jupyterlab
+[I 2025-06-26 16:32:29.887 LabApp] JupyterLab application directory is /usr/local/share/jupyter/lab
+[I 2025-06-26 16:32:29.887 LabApp] Extension Manager is 'pypi'.
+[I 2025-06-26 16:32:29.921 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2025-06-26 16:32:29.921 ServerApp] Serving notebooks from local directory: /home/student
+[I 2025-06-26 16:32:29.921 ServerApp] Jupyter Server 2.14.0 is running at:
+[I 2025-06-26 16:32:29.922 ServerApp] http://localhost:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+[I 2025-06-26 16:32:29.922 ServerApp]     http://127.0.0.1:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+[I 2025-06-26 16:32:29.922 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 2025-06-26 16:32:29.925 ServerApp] No web browser found: Error('could not locate runnable browser').
+[C 2025-06-26 16:32:29.926 ServerApp]
+
+    To access the server, open this file in a browser:
+        file:///home/student/.local/share/jupyter/runtime/jpserver-6389-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+        http://127.0.0.1:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+[I 2025-06-26 16:32:29.937 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2025-06-26 16:33:35.909 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2025-06-26 16:34:14.581 ServerApp] Creating new notebook in /de-prj
+[I 2025-06-26 16:34:14.632 ServerApp] Writing notebook-signing key to /home/student/.local/share/jupyter/notebook_secret
+[I 2025-06-26 16:34:14.887 ServerApp] Kernel started: 54003b5d-4569-4e4e-9877-bef764864934
+[I 2025-06-26 16:34:15.242 ServerApp] Connecting to kernel 54003b5d-4569-4e4e-9877-bef764864934.
+[I 2025-06-26 16:34:15.267 ServerApp] Connecting to kernel 54003b5d-4569-4e4e-9877-bef764864934.
+[I 2025-06-26 16:34:15.281 ServerApp] Connecting to kernel 54003b5d-4569-4e4e-9877-bef764864934.
+[I 2025-06-26 16:35:29.909 ServerApp] Starting buffering for 54003b5d-4569-4e4e-9877-bef764864934:ec6656e9-dad5-488d-b591-cce0cd26409b
+[I 2025-06-26 16:35:33.664 ServerApp] Connecting to kernel 54003b5d-4569-4e4e-9877-bef764864934.
+[I 2025-06-26 16:35:33.726 ServerApp] Starting buffering for 54003b5d-4569-4e4e-9877-bef764864934:0cff4d8d-e8c4-4197-9133-08f5dedf7181
+[W 2025-06-26 16:35:33.754 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2025-06-26 16:35:34.117 ServerApp] Connecting to kernel 54003b5d-4569-4e4e-9877-bef764864934.
+[I 2025-06-26 16:35:42.147 ServerApp] Kernel shutdown: 54003b5d-4569-4e4e-9877-bef764864934
+[W 2025-06-26 16:35:42.272 ServerApp] delete /de-prj/Untitled.ipynb
+[I 2025-06-26 16:35:43.436 ServerApp] Creating new notebook in /de-prj
+[I 2025-06-26 16:35:43.593 ServerApp] Kernel started: 4eecaa31-3ee0-4123-ab32-955a20d9dfef
+[I 2025-06-26 16:35:43.891 ServerApp] Connecting to kernel 4eecaa31-3ee0-4123-ab32-955a20d9dfef.
+[I 2025-06-26 16:35:43.906 ServerApp] Connecting to kernel 4eecaa31-3ee0-4123-ab32-955a20d9dfef.
+[I 2025-06-26 16:35:43.920 ServerApp] Connecting to kernel 4eecaa31-3ee0-4123-ab32-955a20d9dfef.
+[I 2025-06-26 16:37:22.532 ServerApp] Starting buffering for 4eecaa31-3ee0-4123-ab32-955a20d9dfef:dc1c3732-7a2f-41ec-a6c3-c62a291d5788
+^C[I 2025-06-26 16:37:25.425 ServerApp] interrupted
+[I 2025-06-26 16:37:25.426 ServerApp] Serving notebooks from local directory: /home/student
+    1 active kernel
+    Jupyter Server 2.14.0 is running at:
+    http://localhost:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+        http://127.0.0.1:8888/lab?token=b0cefd1504072d3f4da23cad0ad14d915fe61841fa18f4e7
+Shut down this Jupyter server (y/[n])? y
+[C 2025-06-26 16:37:27.383 ServerApp] Shutdown confirmed
+[I 2025-06-26 16:37:27.384 ServerApp] Shutting down 4 extensions
+[I 2025-06-26 16:37:27.384 ServerApp] Shutting down 1 kernel
+[I 2025-06-26 16:37:27.384 ServerApp] Kernel shutdown: 4eecaa31-3ee0-4123-ab32-955a20d9dfef
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ ls -l /home
+total 12
+drwxr-x--- 22 hduser  hduser  4096 May 29  2024 hduser
+drwxr-x---  8 student student 4096 Jun 26 16:27 student
+drwxr-x---  6 tarumt  tarumt  4096 Feb 13  2024 tarumt
+student@PC10:~$ exit
+logout
+hduser@PC10:~$ jps
+9959 Jps
+hduser@PC10:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [PC10]
+PC10: Warning: Permanently added 'pc10' (ED25519) to the list of known hosts.
+hduser@PC10:~$ jps
+10290 NameNode
+10716 SecondaryNameNode
+10957 Jps
+10479 DataNode
+hduser@PC10:~$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+hduser@PC10:~$ jps
+10290 NameNode
+11459 ResourceManager
+11611 NodeManager
+10716 SecondaryNameNode
+12029 Jps
+10479 DataNode
+hduser@PC10:~$ hdfs dfs -ls /user
+Found 1 items
+drwxrwxr-x   - hduser supergroup          0 2024-04-20 09:29 /user/hduser
+hduser@PC10:~$ hdfs dfs -mkdir /user/student
+hduser@PC10:~$ hdfs dfs -ls /user
+Found 2 items
+drwxrwxr-x   - hduser supergroup          0 2024-04-20 09:29 /user/hduser
+drwxr-xr-x   - hduser supergroup          0 2025-06-26 16:50 /user/student
+hduser@PC10:~$ hdfs dfs -chown student:hduser /user/student
+hduser@PC10:~$
+hduser@PC10:~$ hdfs dfs -ls /user
+Found 2 items
+drwxrwxr-x   - hduser  supergroup          0 2024-04-20 09:29 /user/hduser
+drwxr-xr-x   - student hduser              0 2025-06-26 16:50 /user/student
+hduser@PC10:~$ su - student
+Password:
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=122PnuKaSaA_OyYOKnxQOdlMc5awdyf5v' -O shakespeare.txt
+--2025-06-26 16:54:12--  https://docs.google.com/uc?export=download&id=122PnuKaSaA_OyYOKnxQOdlMc5awdyf5v
+Resolving docs.google.com (docs.google.com)... 142.250.199.46, 2404:6800:4001:808::200e
+Connecting to docs.google.com (docs.google.com)|142.250.199.46|:443... connected.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://drive.usercontent.google.com/download?id=122PnuKaSaA_OyYOKnxQOdlMc5awdyf5v&export=download [following]
+--2025-06-26 16:54:12--  https://drive.usercontent.google.com/download?id=122PnuKaSaA_OyYOKnxQOdlMc5awdyf5v&export=download
+Resolving drive.usercontent.google.com (drive.usercontent.google.com)... 142.250.199.1, 2404:6800:4001:803::2001
+Connecting to drive.usercontent.google.com (drive.usercontent.google.com)|142.250.199.1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8877968 (8.5M) [application/octet-stream]
+Saving to: ‘shakespeare.txt’
+
+shakespeare.txt               100%[==============================================>]   8.47M  54.3MB/s    in 0.2s
+
+2025-06-26 16:54:19 (54.3 MB/s) - ‘shakespeare.txt’ saved [8877968/8877968]
+
+student@PC10:~$ ls -l
+total 8684
+drwxrwxr-x 5 student student    4096 Jun 26 16:35 de-prj
+-rw-rw-r-- 1 student student     638 Jun 26 16:18 requirement.txt
+drwxrwxr-x 5 student student    4096 Jun 26 16:27 sample_data
+-rw-rw-r-- 1 student student 8877968 May 15  2021 shakespeare.txt
+student@PC10:~$ hdfs dfs -put shakespeare.txt hdfs_shakespeare.txt
+student@PC10:~$
+student@PC10:~$ hdfs dfs -ls
+Found 1 items
+-rw-r--r--   1 student hduser    8877968 2025-06-26 16:56 hdfs_shakespeare.txt
+student@PC10:~$ hdfs dfs -ls /user/student
+Found 1 items
+-rw-r--r--   1 student hduser    8877968 2025-06-26 16:56 /user/student/hdfs_shakespeare.txt
+student@PC10:~$
+student@PC10:~$ hdfs dfs -cat hdfs_shakespeare.txt | less
+cat: Unable to write to output stream.
+student@PC10:~$ hdfs dfs -cat hdfs_shakespeare.txt | less
+cat: Unable to write to output stream.
+student@PC10:~$ hdfs dfs -cat hdfs_shakespeare.txt | less
+cat: Unable to write to output stream.
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ hdfs dfs -get hdfs_shakespeare.txt ./local_shakespeare.txt
+student@PC10:~$ hdfs dfs -ls
+Found 1 items
+-rw-r--r--   1 student hduser    8877968 2025-06-26 16:56 hdfs_shakespeare.txt
+student@PC10:~$ ls -l
+total 17356
+drwxrwxr-x 5 student student    4096 Jun 26 16:35 de-prj
+-rw-r--r-- 1 student student 8877968 Jun 26 17:02 local_shakespeare.txt
+-rw-rw-r-- 1 student student     638 Jun 26 16:18 requirement.txt
+drwxrwxr-x 5 student student    4096 Jun 26 16:27 sample_data
+-rw-rw-r-- 1 student student 8877968 May 15  2021 shakespeare.txt
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$
+student@PC10:~$ hdfs dfs -chmod 664 hdfs_shakespeare.txt
+student@PC10:~$
+
+
+
+Question 3.1
+------------
+Put the sample_data folder into student’s user directory in HDFS. -->>
+hdfs dfs -put sample_data /user/student/
+hdfs dfs -put sample_data .
+hdfs dfs -put sample_data
+
+to confirm == hdfs dfs -ls
+list all the content in the file == hdfs dfs -ls sample_data
+
+ques1 & 2 sekali === hdfs dfs -put sample_data data
+
+
+Question 3.2
+------------
+Rename the sample_data folder in HDFS as data. -->>
+hdfs dfs -mv sample_data data
+=== hdfs dfs -mv (ori name) (new name)
+
+Question 3.3
+------------
+Create a subdirectory named csv in the HDFS student’s user directory. -->>
+hdfs dfs -mkdir csv
+hdfs dfs -mkdir /user/student/csv
+
+Question 3.4
+------------
+Move all the CSV files from the data directory in HDFS to the newly created csv  subdirectory. -->>
+hdfs dfs -mv /user/student/data/*.csv csv
+hdfs dfs -mv data/*.csv csv/
+
+Question 3.5
+------------
+Change the permissions of the csv subdirectory and its contents such that everyone has full permissions. -->>
+hdfs dfs -chmod -R 777 csv
+
+-R (recursive)
+
+Question 3.6
+------------
+Explore the use of other HDFS commands. -->>
+
+
+
+To Stop the service properly -->>
+student@PC10:~$
+student@PC10:~$ exit
+logout
+hduser@PC10:~$ stop-yarn.sh
+Stopping nodemanagers
+Stopping resourcemanager
+hduser@PC10:~$ stop-dfs.sh
+Stopping namenodes on [localhost]
+Stopping datanodes
+Stopping secondary namenodes [PC10]
+hduser@PC10:~$ jps
+29864 Jps
+hduser@PC10:~$ exit
+logout
+PS C:\Users\TARUMT> wsl
+hduser@PC10:/mnt/c/Users/TARUMT$ exit
+logout
+PS C:\Users\TARUMT> wsl -l -v
+  NAME               STATE           VERSION
+* Ubuntu-22.04-de    Running         2
+  Ubuntu-22.04       Stopped         2
+PS C:\Users\TARUMT> wsl -t Ubuntu-22.04-de
+The operation completed successfully.
+PS C:\Users\TARUMT> wsl -l -v
+  NAME               STATE           VERSION
+* Ubuntu-22.04-de    Stopped         2
+  Ubuntu-22.04       Stopped         2
+PS C:\Users\TARUMT>
+
